@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportActionBar?.title = "Home"
+        supportActionBar?.title = getString(R.string.home)
 
         recyclerViewRepoAdapter = RecyclerViewRepoAdapter(this, dataList) { userRepo ->
 
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProviders.of(this).get(RepoListViewModel::class.java)
 
-        viewModel.allRepoList?.observe(this, Observer { response ->
+        viewModel.allRepoList.observe(this, Observer { response ->
 
             if (response.status == ResultApi.Status.SUCCESS) {
                 response.data?.let {
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.searchRepoList(userInput)
 
             } else {
-                Toast.makeText(this, "İlgili alan boş bırakılamaz", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.empty_input_warning), Toast.LENGTH_LONG).show()
             }
 
         })

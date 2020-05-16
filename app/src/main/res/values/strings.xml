@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MVVMListDataProject</string>
+    <string name="user_name">Username</string>
+    <string name="submit">Submit</string>
+    <string name="owner">Owner</string>
+    <string name="stars">Stars: </string>
+    <string name="open_issues">Open Issues: </string>
+    <string name="home">Home</string>
+    <string name="empty_input_warning">Please search any username</string>
+    <string name="repo_not_found">Repo not found</string>
 </resources>

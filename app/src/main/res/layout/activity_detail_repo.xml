@@ -72,7 +72,7 @@
                         android:layout_gravity="center"
                         android:maxLines="1"
                         android:padding="6dp"
-                        android:text="Owner"
+                        android:text="@string/owner"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -86,7 +86,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Stars: "
+                        android:text="@string/stars"
                         android:textStyle="bold" />
 
                     <TextView
@@ -107,7 +107,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Open Issues: "
+                        android:text="@string/open_issues"
                         android:textStyle="bold" />
 
                     <TextView

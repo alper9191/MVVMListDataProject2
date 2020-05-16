@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mobilhanem.mvvmlistdataproject.model.ResultApi
-import com.mobilhanem.mvvmlistdataproject.model.UserReposItem
 import com.mobilhanem.mvvmlistdataproject.repository.RepoListRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -22,19 +21,20 @@ class RepoListViewModel : ViewModel() {
 
 
     @SuppressLint("CheckResult")
-    fun searchRepoList(input: String) {
+    fun searchRepoList(userName: String) {
 
-        repoListRepository?.fetchRepoList(input)?.subscribeOn(Schedulers.newThread())
-            ?.observeOn(AndroidSchedulers.mainThread())?.subscribe ({ list ->
+        repoListRepository?.fetchRepoList(userName)?.subscribeOn(Schedulers.newThread())
+            ?.observeOn(AndroidSchedulers.mainThread())?.subscribe(
+                { list ->
 
-            allRepoList?.value = ResultApi(list, null, ResultApi.Status.SUCCESS)
+                    allRepoList.value = ResultApi(list, null, ResultApi.Status.SUCCESS)
 
-        } ,
-        {
+                },
+                {
 
-            allRepoList?.value = ResultApi(null, it.message, ResultApi.Status.ERROR)
+                    allRepoList.value = ResultApi(null, it.message, ResultApi.Status.ERROR)
 
-        })
+                })
 
     }
 
